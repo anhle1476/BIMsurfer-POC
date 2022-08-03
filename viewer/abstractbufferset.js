@@ -145,11 +145,12 @@ export class AbstractBufferSet {
         gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.indexBuffer);
         gl.getBufferSubData(gl.ELEMENT_ARRAY_BUFFER, bounds.startIndex * 4, this.batchGpuBuffers.indices, 0, bounds.endIndex - bounds.startIndex);
         
-        if (this.lineIndexBuffer == null) {
-        	debugger;
-        }
-        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.lineIndexBuffer);
-        gl.getBufferSubData(gl.ELEMENT_ARRAY_BUFFER, bounds.startLineIndex * 4, this.batchGpuBuffers.lineIndices, 0, bounds.endLineIndex - bounds.startLineIndex);
+        if (!this.lineIndexBuffer) {
+					debugger;
+				} else {
+					gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.lineIndexBuffer);
+					gl.getBufferSubData(gl.ELEMENT_ARRAY_BUFFER, bounds.startLineIndex * 4, this.batchGpuBuffers.lineIndices, 0, bounds.endLineIndex - bounds.startLineIndex);
+				}
 
         for (var name of toCopy) {
             let buffer = this[name];
@@ -671,7 +672,13 @@ export class AbstractBufferSet {
             return;
     	}
 
-    	let id_ranges = this.generateIdRanges(requestedId, gl);
+			if (!this.lineIndexBuffer) {
+				// ! the lineIndexBuffer can be null or undefined if loaderSettings.generateLineRenders is OFF
+				// just return because we can not generate the lines if the lineIndexBuffer is not available
+				return;
+			}
+
+    let id_ranges = this.generateIdRanges(requestedId, gl);
 		let bounds = this.getBounds(id_ranges);
 		
 		if (id_ranges.length == 0) {

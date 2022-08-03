@@ -51,9 +51,7 @@ export class Settings {
 			useSmallIndicesIfPossible: true,
 			defaultLayerEnabled: true,
 			triangleThresholdDefaultLayer: 10000000,
-			tilingLayerEnabled: true,
-			//
-			excludedTypes : [],
+			tilingLayerEnabled: false,
 			maxOctreeDepth: 10,
 			resetToDefaultViewOnLoad: true,
 			loaderSettings: {
@@ -66,10 +64,10 @@ export class Settings {
 				//tilingLayerReuse: false, // will require gpu reuse
 				prepareBuffers: true,
 				useUuidAndRid: false,
-				// generateLineRenders: true
+				generateLineRenders: true // turn this OFF will make the element picking not draw any indicator line
 			},
 			realtimeSettings: {
-				// drawLineRenders: true, // should only turn this on when generateLineRenders is true
+				drawLineRenders: false, // ! should only turn on when generateLineRenders is true, and there will be huge impact on performance
 				drawTileBorders: true,
 				orderIndependentTransparency: true
 			}
