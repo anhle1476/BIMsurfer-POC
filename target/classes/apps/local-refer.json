@@ -1,0 +1,134 @@
+{
+  "result": [
+      {
+          "__type": "SProject",
+          "checkinInProgress": 0,
+          "checkouts": [],
+          "concreteRevisions": [
+              196612
+          ],
+          "createdById": 131074,
+          "createdDate": 1658890889322,
+          "description": "",
+          "exportLengthMeasurePrefix": "meter",
+          "extendedData": [
+              327751,
+              393287
+          ],
+          "geoTagId": 131077,
+          "hasAuthorizedUsers": [
+              131074
+          ],
+          "id": 3,
+          "lastConcreteRevisionId": 196612,
+          "lastRevisionId": 196611,
+          "logs": [
+              131088,
+              131102
+          ],
+          "modelCheckers": [],
+          "name": "600MB",
+          "newServices": [],
+          "oid": 196609,
+          "parentId": -1,
+          "revisions": [
+              196611
+          ],
+          "rid": 6,
+          "schema": "ifc2x3tc1",
+          "sendEmailOnNewRevision": false,
+          "services": [],
+          "state": "ACTIVE",
+          "subProjects": [],
+          "uuid": "e2df5344-24be-4235-b916-156e4f5d30ff"
+      },
+      {
+          "__type": "SProject",
+          "checkinInProgress": 0,
+          "checkouts": [],
+          "concreteRevisions": [
+              262148
+          ],
+          "createdById": 131074,
+          "createdDate": 1658917198976,
+          "description": "",
+          "exportLengthMeasurePrefix": "meter",
+          "extendedData": [
+              458823,
+              524359
+          ],
+          "geoTagId": 196613,
+          "hasAuthorizedUsers": [
+              131074
+          ],
+          "id": 4,
+          "lastConcreteRevisionId": 262148,
+          "lastRevisionId": 262147,
+          "logs": [
+              196624,
+              196638
+          ],
+          "modelCheckers": [],
+          "name": "Small model",
+          "newServices": [],
+          "oid": 262145,
+          "parentId": -1,
+          "revisions": [
+              262147
+          ],
+          "rid": 6,
+          "schema": "ifc2x3tc1",
+          "sendEmailOnNewRevision": false,
+          "services": [],
+          "state": "ACTIVE",
+          "subProjects": [],
+          "uuid": "3f4b32d4-2e95-4d9f-b2be-b4a35c4250b3"
+      },
+      {
+          "__type": "SProject",
+          "checkinInProgress": 0,
+          "checkouts": [],
+          "concreteRevisions": [
+              65540,
+              131076
+          ],
+          "createdById": 131074,
+          "createdDate": 1658888711322,
+          "description": "just a test",
+          "exportLengthMeasurePrefix": "meter",
+          "extendedData": [
+              65607,
+              131143,
+              196679,
+              262215
+          ],
+          "geoTagId": 65541,
+          "hasAuthorizedUsers": [
+              131074
+          ],
+          "id": 2,
+          "lastConcreteRevisionId": 131076,
+          "lastRevisionId": 131075,
+          "logs": [
+              65552,
+              65566
+          ],
+          "modelCheckers": [],
+          "name": "Test 1",
+          "newServices": [],
+          "oid": 131073,
+          "parentId": -1,
+          "revisions": [
+              65539,
+              131075
+          ],
+          "rid": 10,
+          "schema": "ifc2x3tc1",
+          "sendEmailOnNewRevision": false,
+          "services": [],
+          "state": "ACTIVE",
+          "subProjects": [],
+          "uuid": "5934a6fb-9a0f-4ba7-8111-18f64dc37b04"
+      }
+  ]
+}
