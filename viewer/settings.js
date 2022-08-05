@@ -50,9 +50,9 @@ export class Settings {
 			//gpuReuse: true,
 			useSmallIndicesIfPossible: true,
 			defaultLayerEnabled: true,
-			triangleThresholdDefaultLayer: 10000000,
-			tilingLayerEnabled: false,
-			maxOctreeDepth: 10,
+			triangleThresholdDefaultLayer: 2000000,
+			tilingLayerEnabled: true,
+			maxOctreeDepth: 5,
 			resetToDefaultViewOnLoad: true,
 			loaderSettings: {
 				splitGeometry: true,
@@ -68,7 +68,7 @@ export class Settings {
 			},
 			realtimeSettings: {
 				drawLineRenders: false, // ! should only turn on when generateLineRenders is true, and there will be huge impact on performance
-				drawTileBorders: true,
+				drawTileBorders: false, // only useful to debug the tilingLayer if tilingLayerEnabled = true
 				orderIndependentTransparency: true
 			}
 		} : JSON.parse(settingsObject);
