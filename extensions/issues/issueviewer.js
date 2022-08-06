@@ -4,7 +4,7 @@ import Issue from "./issue.js";
 const ISSUE_VIEWER_CLASS = {
   ROOT: 'issue-viewer',
   ISSUE_ITEM: 'issue-item',
-  CLOSE: 'issue-close',
+  REMOVE: 'issue-remove',
   HIGHLIGHT: 'issue-highlight'
 }
 
@@ -22,7 +22,7 @@ export default class IssueViewer {
   constructor(controller) {
     this.setController(controller);
 
-    this.handleCloseIssue = this.handleCloseIssue.bind(this);
+    this.handleDeleteIssue = this.handleDeleteIssue.bind(this);
     this.handleHighlightIssue = this.handleHighlightIssue.bind(this);
   }
 
@@ -56,7 +56,7 @@ export default class IssueViewer {
     issueDiv.dataset.issueId = issue.issueId;
 
     issueDiv.innerHTML = 
-    `<button class=${ISSUE_VIEWER_CLASS.CLOSE}>X</button>
+    `<button class=${ISSUE_VIEWER_CLASS.REMOVE}>X</button>
     <div>Elements: ${issue.elementIds.join(', ')}</div>
     <div>${issue.description}</div>
     <button class=${ISSUE_VIEWER_CLASS.HIGHLIGHT}>Highlight issue</button>`
@@ -76,20 +76,28 @@ export default class IssueViewer {
   }
 
   bindEventHandler() {
-    this.root.addEventListener('click', this.handleCloseIssue);
+    this.root.addEventListener('click', this.handleDeleteIssue);
     this.root.addEventListener('click', this.handleHighlightIssue);
   }
 
   unbindEventHandler() {
-    this.root.removeEventListener('click', this.handleCloseIssue);
+    this.root.removeEventListener('click', this.handleDeleteIssue);
     this.root.removeEventListener('click', this.handleHighlightIssue);
   }
 
-  handleCloseIssue(e) {
-    if (!e.target.classList.contains(ISSUE_VIEWER_CLASS.CLOSE)) return;
+  handleDeleteIssue(e) {
+    if (!e.target.classList.contains(ISSUE_VIEWER_CLASS.REMOVE)) return;
 
-    const issueId = Number(e.target.parentElement.dataset.issueId);
+    const issueItem = e.target.parentElement;
+    const issueId = Number(issueItem.dataset.issueId);
     console.log('close issue', issueId)
+
+    const isSuccess = this.controller.handleDeleteIssue(issueId);
+    if (isSuccess) {
+      issueItem.parentElement.removeChild(issueItem);
+    } else {
+      console.error(`Remove issue ID=${issueId} failed`)
+    }
   }
 
   handleHighlightIssue(e) {

@@ -121,4 +121,8 @@ export default class IssueController {
     await modelViewer.resetColors();
     return modelViewer.setColor(new Set(highlightElements), highlightColor);
   }
+
+  handleDeleteIssue(issueId) {
+    return this.issueService.deleteIssue(issueId);
+  }
 }

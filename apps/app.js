@@ -269,7 +269,7 @@ export class App {
 		const provider = GlobalProvider.getInstance();
 
 		const issueController = provider.get(IssueController.name);
-		issueController.init(document.getElementById('issues'), lastRevisionId)
+		issueController.init(document.getElementById('issues-viewer'), lastRevisionId)
 
 		const issueForm = document.getElementById('issues-form');
 		issueForm.addEventListener('submit', (e) => {
