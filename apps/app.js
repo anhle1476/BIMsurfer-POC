@@ -148,7 +148,7 @@ export class App {
 		this.keyPressHandler = (event) => {
 			this.keyPressListener(event);
 		};
-		document.addEventListener("keypress", this.keyPressHandler);
+		this.canvas.addEventListener("keypress", this.keyPressHandler);
 		console.log(project)
 		this.bimServerViewer.loadModel(this.api, project);
 
