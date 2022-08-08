@@ -147,12 +147,12 @@ export class CameraControl {
                     pageX = avg[0];
                     pageY = avg[1];
                 } else {
-                    pageX = event.touches[0].pageX;
-                    pageY = event.touches[0].pageY;
+                    pageX = event.touches[0].clientX;
+                    pageY = event.touches[0].clientY;
                 }
             } else {
-                pageX = event.pageX;
-                pageY = event.pageY;
+                pageX = event.clientX;
+                pageY = event.clientY;
             }
             const rect = event.target.getBoundingClientRect();
             const totalOffsetLeft = rect.left;
@@ -273,7 +273,7 @@ export class CameraControl {
         this.camera.orbitting = false;
         this.viewer.overlay.update();
         this.getCanvasPosFromEvent(e, this.mousePos);
-
+        
         let dt = e.timeStamp - this.mouseDownTime;
         this.mouseDown = false;
 
@@ -494,9 +494,8 @@ export class CameraControl {
     	document.removeEventListener("mouseup", this.documentMouseUpHandler);
         canvas.removeEventListener("mousedown", this.canvasMouseDownHandler);
         canvas.removeEventListener("mouseup", this.canvasMouseUpHandler);
-        document.removeEventListener("mouseup", this.documentMouseUpHandler);
         canvas.removeEventListener("keyup", this.canvasKeyUpHandler);
-        canvas.removeEventListener("keydown", this.canvastKeyDownHandler);
+        canvas.removeEventListener("keydown", this.canvasKeyDownHandler);
         canvas.removeEventListener("mouseenter", this.canvasMouseEnterHandler);
         canvas.removeEventListener("mouseleave", this.canvasMouseLeaveHandler);
         canvas.removeEventListener("mousemove", this.canvasMouseMoveHandler);

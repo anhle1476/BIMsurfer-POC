@@ -1,0 +1,9 @@
+.debug-selected-point {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: red;
+  z-index: 10000;
+  top: 0px;
+  left: 0px;
+}
